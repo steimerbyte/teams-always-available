@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Teams Always Available",
+  "version": "1.0",
+  "description": "Keeps the Teams web client status Available by simulating user activity.",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "96": "icons/96.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://teams.microsoft.com/*",
+        "*://teams.cloud.microsoft/*",
+        "*://teams.live.com/*"
+      ],
+      "js": ["keepalive.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "teams-always-available@steimerbyte",
+      "strict_min_version": "91.0"
+    }
+  }
+}
